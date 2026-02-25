@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket Landing Page UMKM - High Converting</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg,#e0f7ff,#f0fff4,#fef9ff);
+    --text-color: #222;
+    --card-bg: rgba(255,255,255,0.7);
+    --card-border: rgba(255,255,255,0.6);
+    --card-shadow: rgba(0,0,0,0.05);
+    --price-color: #00bcd4;
+    --btn-bg: linear-gradient(90deg,#00bcd4,#00c853);
+    --btn-color: #fff;
+    --badge-bg: #00c853;
+    --footer-bg: rgba(0,188,212,0.1);
+}
+body.dark {
+    --bg-gradient: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    --text-color: #fff;
+    --card-bg: rgba(255,255,255,0.1);
+    --card-border: rgba(255,255,255,0.2);
+    --card-shadow: rgba(0,255,200,0.2);
+    --price-color: #00f5a0;
+    --btn-bg: linear-gradient(90deg,#00f5a0,#00d9f5);
+    --btn-color: #000;
+    --badge-bg: #00f5a0;
+    --footer-bg: rgba(0,245,160,0.1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background: var(--bg-gradient);color: var(--text-color);overflow-x:hidden;position:relative;transition:0.5s;}
+body::before{content:"";position:fixed;width:200%;height:200%;top:-50%;left:-50%;background:radial-gradient(circle at 30% 40%, rgba(0,217,245,0.3), transparent 40%), radial-gradient(circle at 70% 60%, rgba(0,245,160,0.3), transparent 40%), radial-gradient(circle at 50% 80%, rgba(200,150,255,0.3), transparent 40%);animation:moveBg 20s linear infinite;z-index:-1;}
+@keyframes moveBg{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+/* Header */
+header{text-align:center;padding:80px 20px 40px;position:relative;}
+header h1{font-size:2.5rem;background:linear-gradient(90deg,#00bcd4,#00c853);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+header p{opacity:0.7;margin-top:10px;}
+
+/* Toggle */
+.toggle,.mode-toggle{text-align:center;margin:20px 0;}
+.toggle button,.mode-toggle button{padding:10px 25px;margin:5px;border:none;border-radius:30px;cursor:pointer;font-weight:600;transition:0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
+.toggle button{background:#fff;color:#333;}
+.toggle button.active{background:linear-gradient(90deg,#00bcd4,#00c853);color:#fff;}
+.mode-toggle{text-align:right;padding:0 20px;}
+.mode-toggle button{background:var(--btn-bg);color: var(--btn-color);}
+
+/* Card */
+.row{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-bottom:40px;}
+.card{
+    backdrop-filter:blur(15px);
+    background: var(--card-bg);
+    border:1px solid var(--card-border);
+    width:280px;
+    padding:30px 20px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.4s;
+    position:relative;
+    box-shadow:0 10px 25px var(--card-shadow);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:450px; /* tinggi seragam agar tombol sejajar */
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 35px var(--card-shadow);}
+.popular{border:2px solid var(--badge-bg);transform:scale(1.05);}
+.badge{position:absolute;top:-10px;right:20px;background: var(--badge-bg);color:#fff;padding:5px 15px;border-radius:20px;font-size:0.7rem;font-weight:600;}
+.price{font-size:1.8rem;margin:15px 0;font-weight:700;color: var(--price-color);}
+ul{list-style:none;margin:20px 0;}
+ul li{margin:8px 0;font-size:0.9rem;display:flex;align-items:center;gap:6px;} /* centang sejajar */
+
+/* Tombol */
+.btn{padding:10px;border:none;border-radius:30px;font-weight:600;cursor:pointer;background: var(--btn-bg);color: var(--btn-color);transition:0.3s;flex:1;}
+.btn:hover{transform:scale(1.05);}
+.btn-group{display:flex;gap:10px;margin-top:10px;}
+.preview{padding:10px;border:none;border-radius:30px;font-weight:600;cursor:pointer;background:transparent;border:2px solid var(--price-color);color: var(--price-color);flex:1;transition:0.3s;}
+.preview:hover{background: var(--price-color);color:#fff;}
+
+/* Footer */
+footer{text-align:center;padding:30px 20px;background: var(--footer-bg);color: var(--text-color);font-size:0.9rem;border-top:1px solid rgba(0,0,0,0.05);margin-top:40px;transition:0.5s;}
+@media(max-width:900px){.row{flex-direction:column;align-items:center;}}
+</style>
+</head>
+<body>
+
+<div class="mode-toggle">
+    <button onclick="toggleMode()">Toggle Mode 🌙</button>
+</div>
+
+<header>
+    <h1>Landing Page Siap Closing untuk UMKM</h1>
+    <p>Bikin Website yang Jualan, Bukan Sekadar Online</p>
+</header>
+
+<div class="toggle">
+    <button class="active" onclick="togglePrice('sekali')">Sekali Bayar</button>
+    <button onclick="togglePrice('bulanan')">Berlangganan</button>
+</div>
+
+<!-- BARIS 1 -->
+<section class="row">
+<div class="card">
+    <h2>Paket 1 - THE DROP</h2>
+    <div class="price" data-sekali="Rp450K" data-bulanan="Rp99K/bln">Rp499K</div>
+    <ul>
+        <li>✔️ Hero Banner</li>
+        <li>✔️ Deskripsi Produk</li>
+        <li>✔️ Testimoni WA</li>
+        <li>✔️ Tombol Chat</li>
+    </ul>
+    <div class="btn-group">
+        <button class="btn" onclick="order('Paket 1 - THE DROP')">Pesan Sekarang</button>
+        <button class="preview" onclick="window.open('https://intan6507.github.io/PAKET-1/', '_blank')">Preview</button>
+    </div>
+</div>
+
+<div class="card popular">
+    <div class="badge">TERLARIS</div>
+    <h2>Paket 2 - AESTHETIC</h2>
+    <div class="price" data-sekali="Rp850K" data-bulanan="Rp149K/bln">Rp899K</div>
+    <ul>
+        <li>✔️ Lookbook Grid</li>
+        <li>✔️ Brand Story</li>
+        <li>✔️ Katalog Produk</li>
+        <li>✔️ Marketplace</li>
+    </ul>
+    <div class="btn-group">
+        <button class="btn" onclick="order('Paket 2 - AESTHETIC')">Pesan Sekarang</button>
+        <button class="preview" onclick="window.open('https://intan6507.github.io/PAKET-2/', '_blank')">Preview</button>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Paket 3 - CATALOG PRO</h2>
+    <div class="price" data-sekali="Rp1.500K" data-bulanan="Rp249K/bln">Rp1.499K</div>
+    <ul>
+        <li>✔️ Slide Promo</li>
+        <li>✔️ Filter Kategori</li>
+        <li>✔️ Form Order</li>
+        <li>✔️ Cek Ongkir</li>
+        <li>✔️ FAQ</li>
+    </ul>
+    <div class="btn-group">
+        <button class="btn" onclick="order('Paket 3 - CATALOG PRO')">Pesan Sekarang</button>
+        <button class="preview" onclick="window.open('https://intan6507.github.io/PAKET-3/', '_blank')">Preview</button>
+    </div>
+</div>
+</section>
+
+<!-- BARIS 2 -->
+<section class="row">
+<div class="card">
+    <h2>Paket 4 - HYPED UP</h2>
+    <div class="price" data-sekali="Rp2.500K" data-bulanan="Rp399K/bln">Rp2.499K</div>
+    <ul>
+        <li>✔️ Video Header</li>
+        <li>✔️ Influencer Review</li>
+        <li>✔️ Galery UGC</li>
+        <li>✔️ Floating Button</li>
+    </ul>
+    <div class="btn-group">
+        <button class="btn" onclick="order('Paket 4 - HYPED UP')">Pesan Sekarang</button>
+        <button class="preview" onclick="window.open('https://intan6507.github.io/PAKET-4/', '_blank')">Preview</button>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Paket 5 - PREMIUM</h2>
+    <div class="price" data-sekali="Rp4.000K" data-bulanan="Rp599K/bln">Rp3.999K</div>
+    <ul>
+        <li>✔️ Custom Animasi</li>
+        <li>✔️ Copywriting</li>
+        <li>✔️ Storytalling</li>
+        <li>✔️ Tracking Pixel</li>
+    </ul>
+    <div class="btn-group">
+        <button class="btn" onclick="order('Paket 5 - PREMIUM')">Pesan Sekarang</button>
+        <button class="preview" onclick="window.open('https://intan6507.github.io/PAKET-5/', '_blank')">Preview</button>
+    </div>
+</div>
+</section>
+
+<footer>
+    ©️ 2026 INTAN NUR AINI ┃ XII TKJ 1
+</footer>
+
+<script>
+function togglePrice(mode){
+    let buttons=document.querySelectorAll('.toggle button');
+    buttons.forEach(btn=>btn.classList.remove('active'));
+    if(mode==='sekali'){buttons[0].classList.add('active')}
+    else{buttons[1].classList.add('active')}
+    document.querySelectorAll('.price').forEach(p=>{
+        p.textContent=p.dataset[mode];
+    });
+}
+
+function order(paket){
+    let phone="628123456789"; 
+    let text=`Halo, saya tertarik dengan ${paket}. Bisa info lebih lanjut?`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`,'_blank');
+}
+
+function toggleMode(){
+    document.body.classList.toggle('dark');
+}
+</script>
+</body>
+</html>
